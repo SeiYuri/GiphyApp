@@ -1,37 +1,32 @@
 $(document).ready(function () {
-    // An array of heroes, new heroes will be pushed into this array;
     var heroes = ["Captain America", "Loki", "Black Widow", "Thor"];
 
-    // Creating Functions & Methods
-    // Function that displays all gif buttons
     function displayGifButtons() {
         $("#gif-gallery").empty();
         for (var i = 0; i < heroes.length; i++) {
             var heroButton = $("<button>");
-            heroButton.addClass("action");
+            heroButton.addClass("newHero");
             heroButton.addClass("button-holder")
             heroButton.attr("data-hero", heroes[i]);
             heroButton.text(heroes[i]);
             $("#gif-gallery").append(heroButton);
         }
     }
-    // Function to add a new action button
     function addNewButton() {
         $("#addHero").on("click", function () {
-            var action = $("#submit-hero").val().trim();
-            if (action == "") {
+            var newHero = $("#submit-hero").val().trim();
+            if (newHero == "") {
                 return false;
             }
-            heroes.push(action);
+            heroes.push(newHero);
 
             displayGifButtons();
             return false;
         });
     }
-    // Function that displays all of the gifs
     function displayGifs() {
-        var action = $(this).attr("data-hero");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + action + "&api_key=rh2cJimgYjXVqUaYIx03pVJarqNKrxFA&limit=5";
+        var newHero = $(this).attr("data-hero");
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + newHero + "&api_key=rh2cJimgYjXVqUaYIx03pVJarqNKrxFA&limit=5";
         $.ajax({
             url: queryURL,
             method: 'GET'
@@ -65,7 +60,7 @@ $(document).ready(function () {
     displayGifButtons();
     addNewButton();
   
-    $(document).on("click", ".action", displayGifs);
+    $(document).on("click", ".newHero", displayGifs);
     $(document).on("click", ".image", function () {
         var state = $(this).attr('data-state');
         if (state == 'still') {
