@@ -1,0 +1,46 @@
+body{
+    background-color: rgb(246, 238, 187);
+}
+
+.button-container {
+    float: left;
+}
+
+#gif-form {
+    float: right;
+}
+
+
+* {
+	box-sizing: border-box;
+}
+
+img { 
+    height: 200px;
+    width: 500px;
+}
+.btn {
+    /* adding spacing between each button*/
+    margin: 3px;
+    background-color: #999999;
+    border-color: #fff;
+}
+.gifDiv{
+    /* making the images go in one line rather than block & adding spacing between the images*/
+    float: left;
+    margin: 3px;
+}
+.container {
+	background-color: #fff;
+	opacity: 0.8;
+	padding: 20px;
+}
+
+div#footer {
+	clear: both;
+	margin-top: 40px;
+	position: center;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+}
